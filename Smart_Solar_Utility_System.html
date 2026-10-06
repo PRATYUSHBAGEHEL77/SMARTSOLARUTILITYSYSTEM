@@ -1,0 +1,563 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>
+html { scroll-behavior: smooth; }:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
+/* ---------- project intro + team ---------- */
+.intro{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:34px 0 48px}
+.intro-inner{width:100%;max-width:1180px;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:clamp(28px,6vw,70px);position:relative;overflow:hidden}
+.intro-inner:before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;right:-160px;top:-180px;background:radial-gradient(circle,var(--solar-bg),transparent 68%);pointer-events:none}
+.eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--solar);font-weight:700;margin-bottom:12px}
+.intro h1{font-size:clamp(42px,7vw,82px);line-height:.95;letter-spacing:-.045em;max-width:900px}
+.intro-copy{max-width:680px;color:var(--muted);font-size:17px;margin:20px 0 28px}
+.intro-btn{display:inline-flex;align-items:center;gap:10px;border:0;border-radius:12px;background:var(--navy);color:var(--on-accent);padding:13px 18px;font-weight:700;cursor:pointer;text-decoration:none}
+.intro-btn:hover{filter:brightness(1.08)}
+.team{margin-top:16px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.team h2{font-size:20px}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:12px}
+.member{background:var(--surface2);border:1px solid var(--line);border-radius:11px;padding:12px 14px}
+.member b{display:block}
+.member span{font-family:var(--font-mono);font-size:11px;color:var(--muted)}
+.dashboard-anchor{scroll-margin-top:20px}
+@media(max-width:520px){.intro h1{font-size:42px}.intro-copy{font-size:15px}}
+
+
+.reveal{opacity:0;transform:translateY(28px) scale(.985);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.75,.2,1)}
+.reveal.is-visible{opacity:1;transform:none}
+.float-card{animation:floatCard 5.5s ease-in-out infinite}
+@keyframes floatCard{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.intro-inner{transform-style:preserve-3d;transition:transform .18s ease-out}
+.motion-orb{position:absolute;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.9),rgba(233,168,0,.22) 35%,transparent 70%);pointer-events:none;animation:orbFloat 7s ease-in-out infinite;right:18%;bottom:8%}
+@keyframes orbFloat{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(18px,-22px,0)}}
+.parking-3d{position:relative;perspective:1100px;overflow:hidden;min-height:390px}
+.parking-3d .scene{position:relative;width:min(620px,94%);height:330px;margin:12px auto 0;transform-style:preserve-3d;transform:rotateX(58deg) rotateZ(-8deg);transition:transform .12s ease-out;cursor:grab}
+.parking-3d .scene:active{cursor:grabbing}
+.parking-3d .ground{position:absolute;inset:15px 20px 20px;background:linear-gradient(135deg,#172b3b,#28485a);border:2px solid #6e8795;border-radius:18px;box-shadow:0 25px 45px rgba(0,0,0,.25)}
+.parking-3d .roof{position:absolute;left:8%;top:8%;width:84%;height:25%;background:linear-gradient(135deg,#123b63,#1f9a72);border:2px solid rgba(255,255,255,.55);border-radius:12px;transform:translateZ(75px);box-shadow:0 18px 24px rgba(0,0,0,.22)}
+.parking-3d .panel{position:absolute;left:10%;top:13%;width:80%;height:70%;display:grid;grid-template-columns:repeat(6,1fr);gap:7px}
+.parking-3d .panel i{display:block;border:1px solid rgba(255,255,255,.35);background:linear-gradient(135deg,#162e4a,#315e79);border-radius:3px}
+.parking-3d .post{position:absolute;width:9px;height:155px;background:linear-gradient(#d9e1e5,#8798a2);bottom:7%;transform:translateZ(75px);border-radius:5px}
+.parking-3d .p1{left:13%}.parking-3d .p2{left:84%}
+.parking-3d .bay3d{position:absolute;width:78px;height:115px;border:2px dashed rgba(255,255,255,.45);bottom:13%;border-radius:5px;transform:translateZ(8px)}
+.parking-3d .b1{left:14%}.parking-3d .b2{left:32%}.parking-3d .b3{left:50%}.parking-3d .b4{left:68%}
+.parking-3d .car3d{position:absolute;width:56px;height:95px;border-radius:12px 12px 8px 8px;background:linear-gradient(135deg,#f0f4f6,#7f98a8);bottom:23%;transform:translateZ(25px);box-shadow:0 10px 12px rgba(0,0,0,.35)}
+.parking-3d .car3d:before{content:"";position:absolute;left:8px;right:8px;top:13px;height:29px;background:#19394e;border-radius:7px}
+.parking-3d .c1{left:19%}.parking-3d .c2{left:37%;background:linear-gradient(135deg,#4cc9a0,#16765a)}.parking-3d .c3{left:55%;background:linear-gradient(135deg,#ffcf5a,#b87500)}
+.parking-3d .charger{position:absolute;width:14px;height:42px;background:#dce7ed;border-radius:3px;bottom:25%;transform:translateZ(35px);box-shadow:0 0 0 2px #123b63}
+.parking-3d .ch1{left:46%}.parking-3d .ch2{left:64%}
+.parking-3d .hint3d{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--muted);font-family:var(--font-mono);white-space:nowrap}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.float-card,.motion-orb{animation:none}.intro-inner{transition:none}.parking-3d .scene{transition:none}}
+@media(max-width:650px){.parking-3d{min-height:330px}.parking-3d .scene{height:270px}.parking-3d .bay3d{width:58px;height:90px}.parking-3d .car3d{width:43px;height:74px}}
+
+/* Live dashboard flow transition */
+.dashboard-flow{max-width:1180px;margin:0 auto 16px;padding:0 16px;}
+.flow-inner{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px 30px;text-align:center;box-shadow:0 10px 30px rgba(16,40,61,.06);}
+.flow-inner h2{font-family:var(--font-display);font-size:clamp(25px,4vw,38px);margin:4px 0 8px;letter-spacing:-.03em;}
+.flow-copy{color:var(--muted);margin:0 auto 22px;max-width:650px;}
+.flow-track{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:20px 0 24px;}
+.flow-step{min-width:175px;flex:1;max-width:220px;padding:15px 12px;background:var(--surface2);border:1px solid var(--line);border-radius:13px;display:flex;flex-direction:column;gap:3px;}
+.flow-icon{font-size:25px;line-height:1.1;}
+.flow-step b{font-family:var(--font-display);font-size:14px;}
+.flow-step small{color:var(--muted);font-size:11px;}
+.flow-arrow{font-size:25px;font-weight:700;color:var(--batt);padding:0 2px;}
+.flow-btn{display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:var(--on-accent);border-radius:11px;padding:12px 18px;text-decoration:none;font-weight:700;transition:transform .2s ease,filter .2s ease;}
+.flow-btn:hover{filter:brightness(1.08);transform:translateY(-2px);}
+@media(max-width:650px){.dashboard-flow{padding:0}.flow-inner{padding:22px 14px}.flow-track{flex-direction:column}.flow-arrow{transform:rotate(90deg);font-size:21px}.flow-step{width:min(100%,300px);max-width:none;}.flow-inner h2{font-size:27px;}}
+
+
+/* Integrated demo video — uses previously empty space without covering text/buttons */
+.flow-layout{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.75fr);gap:20px;align-items:stretch;}
+.flow-content{min-width:0;}
+.demo-video-card{background:var(--surface2);border:1px solid var(--line);border-radius:15px;padding:12px;display:flex;flex-direction:column;gap:9px;min-width:0;}
+.demo-video-card .video-label{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;}
+.demo-video{width:100%;aspect-ratio:16/9;display:block;object-fit:cover;border-radius:11px;background:#07121c;border:1px solid var(--line);box-shadow:0 8px 24px rgba(16,40,61,.12);}
+.demo-video-note{margin:0;color:var(--muted);font-size:11px;line-height:1.4;}
+@media(max-width:900px){.flow-layout{grid-template-columns:1fr;}.demo-video-card{max-width:760px;margin:0 auto;width:100%;}}
+</style></head><body>
+<title>Smart Solar Utility System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: control room. Top bar with sim clock + weather, one summary row, then energy flow beside parking bays, then cost, chart, activity. */
+:root{
+  --bg:#EEF3F2; --surface:#FFFFFF; --surface2:#F4F8F7; --line:#D6E0DE;
+  --fg:#10283D; --muted:#566B7A; --navy:#123B63;
+  --solar:#E9A800; --solar-bg:#FFF3CC; --batt:#1F9A72; --batt-bg:#DDF3EA; --grid:#3A78B8; --grid-bg:#E1EDF8;
+  --busy:#D2433A; --busy-bg:#FBE4E2; --free:#1F9A72; --ev:#123B63;
+  --sign-bg:#101A24; --sign-fg:#FFB627; --on-accent:#FFFFFF;
+  --font-display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --font-body:'DM Sans','Segoe UI',system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0A1620; --surface:#101F2C; --surface2:#15283A; --line:#25384A;
+  --fg:#E6EFF4; --muted:#9BB0BF; --navy:#8EC1F0;
+  --solar:#F5B301; --solar-bg:#3A2F0A; --batt:#4CC9A0; --batt-bg:#10382F; --grid:#6FAEE8; --grid-bg:#16314B;
+  --busy:#FF7A70; --busy-bg:#3F1E1D; --free:#4CC9A0; --ev:#8EC1F0;
+  --sign-bg:#05090D; --sign-fg:#FFB627; --on-accent:#0A1620; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0A1620; --surface:#101F2C; --surface2:#15283A; --line:#25384A;
+  --fg:#E6EFF4; --muted:#9BB0BF; --navy:#8EC1F0;
+  --solar:#F5B301; --solar-bg:#3A2F0A; --batt:#4CC9A0; --batt-bg:#10382F; --grid:#6FAEE8; --grid-bg:#16314B;
+  --busy:#FF7A70; --busy-bg:#3F1E1D; --free:#4CC9A0; --ev:#8EC1F0;
+  --sign-bg:#05090D; --sign-fg:#FFB627; --on-accent:#0A1620; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:14px;line-height:1.45;padding-inline:16px;padding-block:20px 32px}
+*{box-sizing:border-box}
+.wrap{max-width:1180px;margin-inline:auto;display:flex;flex-direction:column;gap:16px}
+h1,h2,h3{font-family:var(--font-display);margin:0;text-wrap:balance}
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+button,select,input{font:inherit;color:inherit}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--grid);outline-offset:2px}
+
+.top{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;justify-content:space-between}
+.brand h1{font-size:28px;font-weight:800;letter-spacing:-.02em}
+.brand p{margin:2px 0 0;color:var(--muted);max-width:46ch}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.clock{font-family:var(--font-mono);font-weight:700;font-size:22px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:6px 12px;min-width:7.2em;text-align:center}
+.clock small{display:block;font-size:10px;font-weight:500;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
+.seg button{border:0;background:transparent;padding:8px 12px;cursor:pointer;color:var(--muted);font-weight:500}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--navy);color:var(--on-accent);font-weight:700}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:8px 12px;cursor:pointer;font-weight:500}
+.btn:hover{background:var(--surface2)}
+.btn.primary{background:var(--navy);color:var(--on-accent);border-color:var(--navy);font-weight:700}
+.btn.primary:hover{filter:brightness(1.1)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.lbl{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.stat .v{font-family:var(--font-mono);font-size:26px;font-weight:700;letter-spacing:-.02em}
+.stat .s{color:var(--muted);font-size:12px}
+.sign{background:var(--sign-bg);border-color:#000}
+.sign .lbl{color:#8D9AA6}
+.sign .v{color:var(--sign-fg)}
+.chips{display:flex;gap:4px;margin-top:4px}
+.chips i{flex:1;height:8px;border-radius:2px;background:#2E8B6A}
+.chips i.b{background:#D2433A}
+
+.cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;min-width:0;display:flex;flex-direction:column;gap:12px}
+.card h2{font-size:18px;font-weight:700;letter-spacing:-.01em}
+.card .hd{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.card .hd span{color:var(--muted);font-size:12px}
+
+svg{display:block;width:100%;height:auto}
+.node{fill:var(--surface2);stroke:var(--line);stroke-width:1.5}
+.nt{fill:var(--fg);font-family:var(--font-display);font-weight:700;font-size:15px}
+.ns{fill:var(--muted);font-family:var(--font-body);font-size:12px}
+.nv{fill:var(--fg);font-family:var(--font-mono);font-weight:700;font-size:14px}
+.track{fill:none;stroke:var(--line);stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+.live{fill:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:2 12;animation:dash 1s linear infinite}
+.live.rev{animation-direction:reverse}
+@keyframes dash{to{stroke-dashoffset:-14}}
+@media (prefers-reduced-motion:reduce){.live{animation:none;stroke-dasharray:none}}
+
+.mix{height:12px;border-radius:6px;background:var(--line);overflow:hidden;display:flex}
+.mix i{display:block;height:100%;transition:width .3s}
+.mixrow{display:flex;flex-direction:column;gap:6px}
+.mixrow .top2{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:12px}
+.mixrow .top2 b{font-family:var(--font-mono)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}
+
+.bays{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.bay{border:1px solid var(--line);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:8px;background:var(--surface2);min-width:0}
+.bay.busy{background:var(--surface)}
+.bay .row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.bay .id{font-family:var(--font-mono);font-weight:700;font-size:16px}
+.pill{font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;letter-spacing:.03em;white-space:nowrap}
+.pill.free{background:var(--batt-bg);color:var(--free)}
+.pill.busy{background:var(--busy-bg);color:var(--busy)}
+.pill.chg{background:var(--solar-bg);color:var(--solar)}
+.pill.ok{background:var(--batt-bg);color:var(--free)}
+.sensor{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:6px;background:var(--free)}
+.sensor.busy{background:var(--busy)}
+.vname{font-size:13px;color:var(--muted)}
+.bar{height:8px;border-radius:4px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--solar);border-radius:4px}
+.bar i.full{background:var(--batt)}
+.acts{display:flex;flex-wrap:wrap;gap:6px}
+.acts .btn{padding:5px 9px;font-size:12.5px}
+
+.cost{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:10px}
+.cost .box{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--surface2);display:flex;flex-direction:column;gap:2px}
+.cost .box .v{font-family:var(--font-mono);font-weight:700;font-size:22px}
+.cost .box.save{background:var(--batt-bg);border-color:transparent}
+.cost .box.save .v{color:var(--free)}
+.fields{display:flex;gap:12px;flex-wrap:wrap}
+.fields label{display:flex;flex-direction:column;gap:3px;font-size:12px;color:var(--muted)}
+.fields input{width:110px;border:1px solid var(--line);background:var(--surface2);border-radius:8px;padding:6px 8px;font-family:var(--font-mono)}
+.note{font-size:12px;color:var(--muted);margin:0}
+
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.axis{fill:var(--muted);font-family:var(--font-mono);font-size:11px}
+.gridln{stroke:var(--line);stroke-width:1}
+
+.list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;max-height:300px;overflow:auto}
+.list li{display:grid;grid-template-columns:52px 1fr;gap:10px;padding:7px 0;border-bottom:1px solid var(--line);font-size:13px}
+.list li:last-child{border-bottom:0}
+.list .t{font-family:var(--font-mono);color:var(--muted);font-size:12px}
+.list li.k-pay .x{color:var(--grid);font-weight:700}
+.list li.k-done .x{color:var(--free);font-weight:700}
+.tblwrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th{text-align:left;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:7px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+td.n,th.n{text-align:right}
+.empty{color:var(--muted);padding:10px 0;font-size:13px}
+
+.toasts{position:fixed;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;align-items:center;gap:8px;pointer-events:none}
+.toast{background:var(--navy);color:var(--on-accent);padding:10px 14px;border-radius:10px;font-weight:500;box-shadow:0 6px 24px rgba(0,0,0,.25);max-width:min(420px,100%);animation:in .25s ease-out}
+@keyframes in{from{transform:translateY(10px);opacity:0}to{transform:none;opacity:1}}
+@media (max-width:900px){.cols{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:520px){.brand h1{font-size:24px}.stat .v{font-size:22px}}
+</style>
+
+<section class="intro reveal">
+  <div class="intro-inner">
+    <div class="eyebrow">SMART ENERGY • SMART PARKING • EV CHARGING</div>
+    <h1>Smart Solar<br>Utility System</h1>
+    <p class="intro-copy">
+      A solar-powered smart parking and EV charging system designed to monitor
+      energy generation, battery storage, grid backup, parking availability and charging demand.
+    </p>
+    <a class="intro-btn" href="#live-dashboard">Enter Live Dashboard <span>→</span></a>
+  </div>
+</section>
+
+<section class="card parking-3d reveal" aria-labelledby="h3d" style="max-width:1180px;margin:0 auto 16px">
+  <div class="hd"><h2 id="h3d">Interactive 3D Solar Parking System</h2><span>Drag with your mouse to rotate</span></div>
+  <div class="scene" id="parkingScene" aria-label="Rotatable 3D solar parking system">
+    <div class="ground"></div>
+    <div class="roof"><div class="panel"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+    <div class="post p1"></div><div class="post p2"></div>
+    <div class="bay3d b1"></div><div class="bay3d b2"></div><div class="bay3d b3"></div><div class="bay3d b4"></div>
+    <div class="car3d c1"></div><div class="car3d c2"></div><div class="car3d c3"></div>
+    <div class="charger ch1"></div><div class="charger ch2"></div>
+  </div>
+  <div class="hint3d">MOUSE DRAG • ROTATE · MOVE CURSOR • PARALLAX</div>
+</section>
+
+<!-- LIVE DASHBOARD FLOW / MIDDLE PAGE -->
+<section class="dashboard-flow reveal" aria-labelledby="flowTitle">
+    <div class="flow-inner">
+    <div class="flow-layout">
+      <div class="flow-content">
+        <div class="eyebrow">LIVE SYSTEM FLOW</div>
+        <h2 id="flowTitle">From Solar Generation to EV Charging</h2>
+        <p class="flow-copy">See how power moves through the complete Smart Solar Utility System before entering the live dashboard.</p>
+        <div class="flow-track">
+          <div class="flow-step"><span class="flow-icon">☀</span><b>Solar Panels</b><small>Generate solar power</small></div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step"><span class="flow-icon">⚡</span><b>Controller + Inverter</b><small>Manage &amp; convert power</small></div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step"><span class="flow-icon">🔋</span><b>Battery / Grid</b><small>Store or provide backup</small></div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step"><span class="flow-icon">🚗</span><b>EV Chargers</b><small>Charge parked vehicles</small></div>
+        </div>
+        <a class="flow-btn" href="#live-dashboard">Enter Live Dashboard <span>→</span></a>
+      </div>
+      <div class="demo-video-card">
+        <span class="video-label">SYSTEM DEMO • LIVE PREVIEW</span>
+        <video class="demo-video" src="57045.mp4" autoplay muted loop playsinline controls preload="metadata"></video>
+        <p class="demo-video-note">Visual preview of the solar parking and EV charging system.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap" id="live-dashboard">
+  <header class="top">
+    <div class="brand">
+      <h1>Smart Solar Utility System</h1>
+      <p>Working model of a solar carport with smart parking and EV charging in one simulation. All values are simulated.</p>
+    </div>
+    <div class="controls">
+      <div class="clock" id="clock" aria-live="off"><small id="daylbl">Day 1</small><span id="clk">09:00</span></div>
+      <button class="btn primary" id="play" type="button">Pause</button>
+      <div class="seg" role="group" aria-label="Simulation speed" id="speed">
+        <button type="button" data-v="4" aria-pressed="false">Slow</button>
+        <button type="button" data-v="10" aria-pressed="true">Normal</button>
+        <button type="button" data-v="30" aria-pressed="false">Fast</button>
+      </div>
+      <div class="seg" role="group" aria-label="Weather" id="weather">
+        <button type="button" data-v="sunny" aria-pressed="true">Sunny</button>
+        <button type="button" data-v="partly" aria-pressed="false">Partly cloudy</button>
+        <button type="button" data-v="overcast" aria-pressed="false">Overcast</button>
+      </div>
+      <button class="btn" id="reset" type="button">Reset</button>
+    </div>
+  </header>
+
+  <section class="stats reveal" aria-label="Summary">
+    <div class="stat sign"><span class="lbl">Entrance display</span><span class="v" id="freeTxt">FREE 6/8</span><div class="chips" id="chips"></div></div>
+    <div class="stat"><span class="lbl">Solar output</span><span class="v" id="sSolar" style="color:var(--solar)">0.0 kW</span><span class="s" id="sSolarS">of 10 kW panel capacity</span></div>
+    <div class="stat"><span class="lbl">Battery</span><span class="v" id="sBatt" style="color:var(--batt)">0%</span><span class="s" id="sBattS">20 kWh storage</span></div>
+    <div class="stat"><span class="lbl">Grid share today</span><span class="v" id="sGrid" style="color:var(--grid)">0%</span><span class="s">of energy used since start</span></div>
+  </section>
+
+  <div class="cols">
+    <section class="card reveal" aria-labelledby="hFlow">
+      <div class="hd"><h2 id="hFlow">Energy flow</h2><span>Solar first, then battery, then grid backup</span></div>
+      <svg viewBox="0 0 640 290" role="img" aria-label="Energy flow diagram between solar panels, controller, battery, grid and chargers">
+        <path class="track" d="M150 60 H200 V150 H255"/>
+        <path class="track" d="M385 135 H440 V60 H490"/>
+        <path class="track" d="M150 240 H320 V185"/>
+        <path class="track" d="M385 165 H440 V240 H490"/>
+        <path id="fSolar" class="live" d="M150 60 H200 V150 H255" stroke="var(--solar)"/>
+        <path id="fBatt" class="live" d="M385 135 H440 V60 H490" stroke="var(--solar)"/>
+        <path id="fGrid" class="live" d="M150 240 H320 V185" stroke="var(--grid)"/>
+        <path id="fLoad" class="live" d="M385 165 H440 V240 H490" stroke="var(--solar)"/>
+        <rect class="node" x="20" y="25" width="130" height="70" rx="12"/><text class="nt" x="34" y="52">Solar panels</text><text class="nv" id="nSolar" x="34" y="78">0.0 kW</text>
+        <rect class="node" x="255" y="115" width="130" height="70" rx="12"/><text class="nt" x="270" y="143">Controller</text><text class="ns" x="270" y="165">+ inverter</text>
+        <rect class="node" x="490" y="25" width="130" height="70" rx="12"/><text class="nt" x="504" y="52">Battery</text><text class="nv" id="nBatt" x="504" y="78">0%</text>
+        <rect class="node" x="20" y="205" width="130" height="70" rx="12"/><text class="nt" x="34" y="232">Grid backup</text><text class="nv" id="nGrid" x="34" y="258">0.0 kW</text>
+        <rect class="node" x="490" y="205" width="130" height="70" rx="12"/><text class="nt" x="504" y="232">EV chargers</text><text class="nv" id="nLoad" x="504" y="258">0.0 kW</text>
+        <text class="ns" id="tBatt" x="448" y="46" text-anchor="middle"></text>
+      </svg>
+      <div class="mixrow">
+        <div class="top2"><span class="lbl">Power source now</span><span id="mixNowT"></span></div>
+        <div class="mix" id="mixNow"></div>
+      </div>
+      <div class="mixrow">
+        <div class="top2"><span class="lbl">Power source since start</span><span id="mixCumT"></span></div>
+        <div class="mix" id="mixCum"></div>
+      </div>
+    </section>
+
+    <section class="card reveal float-card" aria-labelledby="hBays">
+      <div class="hd"><h2 id="hBays">Parking bays</h2><span>Sensors update the app and display</span></div>
+      <div class="bays" id="bays"></div>
+    </section>
+  </div>
+
+  <div class="cols">
+    <section class="card reveal" aria-labelledby="hCost">
+      <div class="hd"><h2 id="hCost">Charging cost</h2><span>Illustrative target, not a guaranteed price</span></div>
+      <div class="cost">
+        <div class="box"><span class="lbl">Energy charged</span><span class="v" id="cKwh">0.0 kWh</span></div>
+        <div class="box"><span class="lbl">Conventional</span><span class="v" id="cConv">₹0</span></div>
+        <div class="box"><span class="lbl">Solar system</span><span class="v" id="cPs">₹0</span></div>
+        <div class="box save"><span class="lbl">Saved</span><span class="v" id="cSave">₹0</span></div>
+      </div>
+      <div class="fields">
+        <label for="pConv">Conventional price (₹ per unit)<input id="pConv" type="number" min="1" step="0.5" value="10"></label>
+        <label for="pPs">Solar system price (₹ per unit)<input id="pPs" type="number" min="1" step="0.5" value="5"></label>
+      </div>
+      <p class="note" id="proj"></p>
+    </section>
+
+    <section class="card reveal" aria-labelledby="hChart">
+      <div class="hd"><h2 id="hChart">Last 12 hours</h2>
+        <div class="legend"><span><span class="dot" style="background:var(--solar)"></span>Solar kW</span><span><span class="dot" style="background:var(--navy)"></span>EV load kW</span><span><span class="dot" style="background:var(--batt)"></span>Battery %</span></div></div>
+      <svg id="chart" viewBox="0 0 600 200" role="img" aria-label="Solar output, EV load and battery level over the last 12 simulated hours"></svg>
+    </section>
+  </div>
+
+  <div class="cols">
+    <section class="card reveal" aria-labelledby="hLog">
+      <div class="hd"><h2 id="hLog">Activity</h2><span>Sensors, app, payments</span></div>
+      <ul class="list" id="log"></ul>
+    </section>
+    <section class="card reveal" aria-labelledby="hRec">
+      <div class="hd"><h2 id="hRec">Parking records</h2><span>Saved automatically on exit</span></div>
+      <div class="tblwrap" id="recWrap"></div>
+    </section>
+  </div>
+  <p class="note">Simulation values: 10 kW solar array, 20 kWh battery, 3.3 kW per charger, 8 bays. Payments are a demo only; no money moves.</p>
+</div>
+
+<section class="team" aria-labelledby="teamTitle">
+  <div class="hd"><h2 id="teamTitle">Team Info</h2><span>Smart Solar Utility System</span></div>
+  <div class="team-grid">
+    <div class="member"><span>01</span><b>Prabhav Mishra</b></div>
+    <div class="member"><span>02</span><b>Pratyush</b></div>
+    <div class="member"><span>03</span><b>Ranjan K. Yadav</b></div>
+    <div class="member"><span>04</span><b>Ratanjeet Singh Batra</b></div>
+    <div class="member"><span>05</span><b>Raunak Singh</b></div>
+    <div class="member"><span>06</span><b>Rudra Pratap Singh</b></div>
+  </div>
+</section>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script>
+(function(){
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const els=[...document.querySelectorAll('.reveal')];
+  if(!reduced && 'IntersectionObserver' in window){
+    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target)}}),{threshold:.12});
+    els.forEach(e=>io.observe(e));
+  } else els.forEach(e=>e.classList.add('is-visible'));
+  const hero=document.querySelector('.intro-inner');
+  if(hero&&!reduced){
+    hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;hero.style.transform=`perspective(900px) rotateX(${(-y*2.2).toFixed(2)}deg) rotateY(${(x*3).toFixed(2)}deg)`});
+    hero.addEventListener('pointerleave',()=>hero.style.transform='');
+  }
+  const scene=document.getElementById('parkingScene');
+  if(scene&&!reduced){
+    let drag=false,lastX=0,lastY=0,rx=58,rz=-8;
+    const apply=()=>scene.style.transform=`rotateX(${rx}deg) rotateZ(${rz}deg)`;
+    scene.addEventListener('pointerdown',e=>{drag=true;lastX=e.clientX;lastY=e.clientY;scene.setPointerCapture(e.pointerId)});
+    scene.addEventListener('pointermove',e=>{if(!drag)return;rz+=(e.clientX-lastX)*.45;rx-=(e.clientY-lastY)*.35;rx=Math.max(28,Math.min(78,rx));lastX=e.clientX;lastY=e.clientY;apply()});
+    scene.addEventListener('pointerup',()=>drag=false);scene.addEventListener('pointercancel',()=>drag=false);
+  }
+})();
+</script>
+
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var pad=function(n){return String(n).padStart(2,'0')};
+var NB=8, CH_KW=3.3, CAP=20, PEAK=10, BASE=0.2, BMAX=6, EFF=0.92;
+var WF={sunny:1,partly:0.55,overcast:0.15};
+var EVS=[{n:'EV · 24 kWh',c:24},{n:'EV · 30 kWh',c:30},{n:'EV · 40.5 kWh',c:40.5}];
+var S;
+function clock(m){m=Math.floor(m%1440);return pad(Math.floor(m/60))+':'+pad(m%60)}
+function price(){return {conv:Math.max(0,parseFloat($('#pConv').value)||0),ps:Math.max(0,parseFloat($('#pPs').value)||0)}}
+function inr(n){return '₹'+Math.round(n).toLocaleString('en-IN')}
+function toast(msg){var d=document.createElement('div');d.className='toast';d.textContent=msg;$('#toasts').appendChild(d);setTimeout(function(){d.remove()},3800)}
+function note(text,kind,notify){S.log.unshift({t:clock(S.simMin),text:text,kind:kind||''});if(S.log.length>50)S.log.pop();if(notify)toast(text);S.dirtyLog=true}
+function freeCount(){return S.bays.filter(function(b){return !b.v}).length}
+function mkVeh(type,soc){
+  var v={type:type,inAt:S.simMin,kwh:0,paidKwh:0,paid:0,charging:false,done:false,soc:0,cap:0,name:'Car'};
+  if(type==='ev'){var e=EVS[Math.floor(Math.random()*EVS.length)];v.name=e.n;v.cap=e.c;v.soc=soc==null?0.1+Math.random()*0.35:soc;v.charging=true}
+  return v}
+function park(i,type,soc,quiet){
+  var b=S.bays[i];if(b.v)return;b.v=mkVeh(type,soc);
+  if(!quiet){note('Sensor A'+(i+1)+': vehicle detected','sensor');note('App and display updated: '+freeCount()+' of '+NB+' free','sensor');
+    if(type==='ev')note('Charger A'+(i+1)+' connected, charging started','sensor')}
+}
+function owed(v){return Math.max(0,v.kwh-v.paidKwh)}
+function exitBay(i){
+  var b=S.bays[i],v=b.v;if(!v||owed(v)>0.005)return;
+  S.rec.unshift({bay:'A'+(i+1),type:v.name,inT:clock(v.inAt),outT:clock(S.simMin),kwh:v.kwh,cost:v.paid});
+  if(S.rec.length>30)S.rec.pop();b.v=null;
+  note('Sensor A'+(i+1)+': slot is free again','sensor');note('Parking record saved for A'+(i+1),'done',true);S.dirtyRec=true}
+function pay(i){
+  var v=S.bays[i].v;if(!v)return;var o=owed(v);if(o<=0.005)return;var amt=o*price().ps;
+  v.paidKwh=v.kwh;v.paid+=amt;note('A'+(i+1)+' paid '+inr(amt)+' online (demo)','pay',true)}
+function init(keepSettings){
+  S={simMin:9*60,playing:keepSettings?S.playing:true,mps:keepSettings?S.mps:10,weather:keepSettings?S.weather:'sunny',wf:1,batt:12.4,
+     cum:{solar:0,su:0,bd:0,gr:0,ev:0},now:{solar:0,load:0,su:0,bd:0,bc:0,gr:0},bays:[],log:[],rec:[],hist:[],lastHist:9*60,dirtyLog:true,dirtyRec:true};
+  for(var i=0;i<NB;i++)S.bays.push({v:null});
+  park(0,'car',null,true);park(2,'car',null,true);park(1,'ev',0.38,true);park(4,'ev',0.22,true);
+  S.bays[0].v.inAt=8*60+20;S.bays[2].v.inAt=8*60+45;S.bays[1].v.inAt=8*60+50;S.bays[4].v.inAt=8*60+55;
+  note('Simulation started. 4 vehicles already parked.','');
+  prefill();pushHist();render(true)}
+function prefill(){var cur=9*60;for(var k=71;k>=1;k--){var m=cur-k*10,h=((m%1440)+1440)%1440/60,b=Math.max(0,Math.sin(Math.PI*(h-6)/12));S.hist.push({m:m,solar:PEAK*b,load:0,soc:50+12*(71-k)/71})}}
+function pushHist(){var n=S.now;S.hist.push({m:S.simMin,solar:n.solar,load:n.load>BASE+0.001?n.load-BASE:0,soc:S.batt/CAP*100});if(S.hist.length>72)S.hist.shift()}
+
+function step(dt){
+  var mins=S.mps*dt,dtH=mins/60;S.simMin+=mins;
+  var h=(S.simMin%1440)/60,base=Math.max(0,Math.sin(Math.PI*(h-6)/12));
+  S.wf+=(WF[S.weather]-S.wf)*Math.min(1,dt*1.6);
+  var solar=PEAK*base*S.wf;
+  var load=BASE;
+  S.bays.forEach(function(b){if(b.v&&b.v.type==='ev'&&b.v.charging&&!b.v.done)load+=CH_KW});
+  var su=Math.min(solar,load),def=load-su;
+  var bd=0;if(S.batt>0.1*CAP)bd=Math.min(def,BMAX,(S.batt-0.1*CAP)/dtH);
+  var gr=def-bd,sur=Math.max(0,solar-load),bc=0;
+  if(S.batt<CAP)bc=Math.min(sur,BMAX,(CAP-S.batt)/dtH/EFF);
+  S.batt=Math.min(CAP,Math.max(0,S.batt+(EFF*bc-bd)*dtH));
+  var c=S.cum;c.solar+=solar*dtH;c.su+=su*dtH;c.bd+=bd*dtH;c.gr+=gr*dtH;
+  S.now={solar:solar,load:load,su:su,bd:bd,bc:bc,gr:gr};
+  S.bays.forEach(function(b,i){var v=b.v;if(!v||v.type!=='ev'||!v.charging||v.done)return;
+    var e=CH_KW*dtH;v.soc+=e/v.cap;v.kwh+=e;c.ev+=e;
+    if(v.soc>=1){v.soc=1;v.done=true;v.charging=false;note('Charging complete at A'+(i+1)+' ('+v.name+'). Pay online to exit.','done',true)}});
+  if(S.simMin-S.lastHist>=10){S.lastHist=S.simMin;pushHist();S.dirtyChart=true}
+}
+
+/* ---------- rendering ---------- */
+var bayEls=[];
+function buildBays(){
+  var box=$('#bays');box.innerHTML='';
+  for(var i=0;i<NB;i++){var d=document.createElement('div');d.className='bay';d.dataset.i=i;d.dataset.sig='';box.appendChild(d);bayEls.push(d)}
+  box.addEventListener('click',function(e){
+    var btn=e.target.closest('button[data-act]');if(!btn||btn.disabled)return;
+    var i=+btn.closest('.bay').dataset.i,a=btn.dataset.act,v=S.bays[i].v;
+    if(a==='ev')park(i,'ev');else if(a==='car')park(i,'car');
+    else if(a==='exit')exitBay(i);else if(a==='pay')pay(i);
+    else if(a==='tog'&&v){v.charging=!v.charging;note('Charging '+(v.charging?'resumed':'stopped')+' at A'+(i+1),'sensor')}
+    render(true)});
+}
+function bayRender(i,force){
+  var b=S.bays[i],v=b.v,el=bayEls[i],p=price();
+  var o=v?owed(v):0,chg=!!(v&&v.type==='ev'&&v.charging&&!v.done);
+  var sig=[!!v,v&&v.type,chg,v&&v.done,o>0.005,Math.round(o*p.ps),v&&v.name].join('|');
+  if(sig!==el.dataset.sig){el.dataset.sig=sig;
+    var h='<div class="row"><span class="id"><span class="sensor'+(v?' busy':'')+'"></span>A'+(i+1)+'</span>';
+    if(!v)h+='<span class="pill free">Free</span></div><div class="vname">Sensor reads clear</div><div class="acts"><button type="button" class="btn" data-act="ev">Park EV</button><button type="button" class="btn" data-act="car">Park car</button></div>';
+    else{var pill=chg?'<span class="pill chg">Charging</span>':(v.done?'<span class="pill ok">Charged</span>':'<span class="pill busy">Busy</span>');
+      h+=pill+'</div><div class="vname">'+v.name+'</div>';
+      if(v.type==='ev')h+='<div class="bar"><i data-bar></i></div><div class="row"><span class="mono" data-soc></span><span class="mono" style="color:var(--muted)" data-kw></span></div>';
+      h+='<div class="acts">';
+      if(v.type==='ev'&&!v.done)h+='<button type="button" class="btn" data-act="tog">'+(v.charging?'Stop charging':'Start charging')+'</button>';
+      if(o>0.005&&!chg)h+='<button type="button" class="btn primary" data-act="pay">Pay '+inr(o*p.ps)+'</button>';
+      h+='<button type="button" class="btn" data-act="exit"'+(o>0.005?' disabled title="Pay first"':'')+'>Exit</button></div>'}
+    el.className='bay'+(v?' busy':'');el.innerHTML=h}
+  if(v&&v.type==='ev'){var bar=el.querySelector('[data-bar]');if(bar){bar.style.width=(v.soc*100).toFixed(1)+'%';bar.className=v.done?'full':''}
+    var s=el.querySelector('[data-soc]');if(s)s.textContent=Math.round(v.soc*100)+'% · '+v.kwh.toFixed(1)+' kWh';
+    var k=el.querySelector('[data-kw]');if(k)k.textContent=chg?CH_KW.toFixed(1)+' kW':'idle'}
+}
+function setFlow(id,power,color,rev){var e=$(id);e.style.strokeOpacity=power>0.05?'1':'0';e.style.stroke=color;e.classList.toggle('rev',!!rev)}
+function mixBar(el,a,b,c){var t=a+b+c||1;el.innerHTML='<i style="width:'+(a/t*100)+'%;background:var(--solar)"></i><i style="width:'+(b/t*100)+'%;background:var(--batt)"></i><i style="width:'+(c/t*100)+'%;background:var(--grid)"></i>'}
+function mixTxt(a,b,c){var t=a+b+c||1;return '<span class="dot" style="background:var(--solar)"></span>Solar <b>'+Math.round(a/t*100)+'%</b> &nbsp;<span class="dot" style="background:var(--batt)"></span>Battery <b>'+Math.round(b/t*100)+'%</b> &nbsp;<span class="dot" style="background:var(--grid)"></span>Grid <b>'+Math.round(c/t*100)+'%</b>'}
+function renderChart(){
+  var W=600,H=200,l=34,r=40,t=10,bt=26,pw=W-l-r,ph=H-t-bt,N=72,hs=S.hist,sx=function(i){return l+pw*(i+(N-hs.length))/(N-1)};
+  var y=function(v){return t+ph*(1-Math.min(v,PEAK)/PEAK)},yp=function(v){return t+ph*(1-v/100)};
+  var g='';[0,5,10].forEach(function(v){g+='<line class="gridln" x1="'+l+'" x2="'+(W-r)+'" y1="'+y(v)+'" y2="'+y(v)+'"/><text class="axis" x="'+(l-6)+'" y="'+(y(v)+4)+'" text-anchor="end">'+v+'</text>'});
+  [0,50,100].forEach(function(v){g+='<text class="axis" x="'+(W-r+6)+'" y="'+(yp(v)+4)+'">'+v+'%</text>'});
+  if(hs.length>1){
+    var sp='M'+sx(0)+' '+y(0)+hs.map(function(d,i){return ' L'+sx(i).toFixed(1)+' '+y(d.solar).toFixed(1)}).join('')+' L'+sx(hs.length-1)+' '+y(0)+' Z';
+    var lp=hs.map(function(d,i){return (i?'L':'M')+sx(i).toFixed(1)+' '+y(d.load).toFixed(1)}).join(' ');
+    var bp=hs.map(function(d,i){return (i?'L':'M')+sx(i).toFixed(1)+' '+yp(d.soc).toFixed(1)}).join(' ');
+    var sl=hs.map(function(d,i){return (i?'L':'M')+sx(i).toFixed(1)+' '+y(d.solar).toFixed(1)}).join(' ');
+    g+='<path d="'+sp+'" fill="var(--solar)" fill-opacity=".22"/><path d="'+sl+'" fill="none" stroke="var(--solar)" stroke-width="2.2"/><path d="'+bp+'" fill="none" stroke="var(--batt)" stroke-width="2" stroke-dasharray="5 4"/><path d="'+lp+'" fill="none" stroke="var(--navy)" stroke-width="2.4"/>';
+    var last=hs[hs.length-1];g+='<circle cx="'+sx(hs.length-1)+'" cy="'+y(last.load)+'" r="4" fill="var(--navy)"/>';
+    var idx=[0,Math.floor(hs.length/2),hs.length-1],lx=-999;idx.forEach(function(i){if(!hs[i]||sx(i)-lx<80)return;lx=sx(i);g+='<text class="axis" x="'+Math.min(Math.max(sx(i),l+14),W-r-14)+'" y="'+(H-6)+'" text-anchor="middle">'+clock(hs[i].m)+'</text>'})}
+  $('#chart').innerHTML=g}
+function render(force){
+  var n=S.now,h=(S.simMin%1440);
+  $('#clk').textContent=clock(S.simMin);$('#daylbl').textContent='Day '+(Math.floor(S.simMin/1440)+1);
+  var free=freeCount();$('#freeTxt').textContent='FREE '+free+'/'+NB;
+  $('#chips').innerHTML=S.bays.map(function(b){return '<i class="'+(b.v?'b':'')+'"></i>'}).join('');
+  $('#sSolar').textContent=n.solar.toFixed(1)+' kW';
+  $('#sSolarS').textContent=(h<6*60||h>=18*60)?'Night. No solar generation':Math.round(S.wf*100)+'% sunlight reaching panels';
+  $('#sBatt').textContent=Math.round(S.batt/CAP*100)+'%';
+  $('#sBattS').textContent=(S.batt).toFixed(1)+' of '+CAP+' kWh'+(n.bd>0.1?' · discharging':(n.bc>0.1?' · charging':''));
+  var c=S.cum,tot=c.su+c.bd+c.gr;$('#sGrid').textContent=tot>0?Math.round(c.gr/tot*100)+'%':'0%';
+  $('#nSolar').textContent=n.solar.toFixed(1)+' kW';$('#nBatt').textContent=Math.round(S.batt/CAP*100)+'%';$('#nGrid').textContent=n.gr.toFixed(1)+' kW';$('#nLoad').textContent=n.load.toFixed(1)+' kW';
+  setFlow('#fSolar',n.solar,'var(--solar)');
+  var charging=n.bc>0.1,disch=n.bd>0.1;setFlow('#fBatt',charging||disch?1:0,charging?'var(--solar)':'var(--batt)',disch);
+  $('#tBatt').textContent=charging?'+'+n.bc.toFixed(1)+' kW':(disch?'-'+n.bd.toFixed(1)+' kW':'');
+  setFlow('#fGrid',n.gr,'var(--grid)');
+  var dom=n.su>=n.bd&&n.su>=n.gr?'var(--solar)':(n.bd>=n.gr?'var(--batt)':'var(--grid)');setFlow('#fLoad',n.load,dom);
+  mixBar($('#mixNow'),n.su,n.bd,n.gr);$('#mixNowT').innerHTML=mixTxt(n.su,n.bd,n.gr);
+  mixBar($('#mixCum'),c.su,c.bd,c.gr);$('#mixCumT').innerHTML=mixTxt(c.su,c.bd,c.gr);
+  for(var i=0;i<NB;i++)bayRender(i,force);
+  var p=price();$('#cKwh').textContent=c.ev.toFixed(1)+' kWh';$('#cConv').textContent=inr(c.ev*p.conv);$('#cPs').textContent=inr(c.ev*p.ps);$('#cSave').textContent=inr(c.ev*(p.conv-p.ps));
+  $('#proj').textContent='At 30 units a month for 12 months (360 units): '+inr(360*p.conv)+' at the conventional price against '+inr(360*p.ps)+' with the solar system, a saving of '+inr(360*(p.conv-p.ps))+' per EV user.';
+  if(S.dirtyLog||force){S.dirtyLog=false;$('#log').innerHTML=S.log.slice(0,14).map(function(l){return '<li class="k-'+l.kind+'"><span class="t">'+l.t+'</span><span class="x">'+l.text+'</span></li>'}).join('')}
+  if(S.dirtyRec||force){S.dirtyRec=false;$('#recWrap').innerHTML=S.rec.length?'<table><thead><tr><th>Bay</th><th>Vehicle</th><th>In</th><th>Out</th><th class="n">kWh</th><th class="n">Paid</th></tr></thead><tbody>'+S.rec.map(function(r){return '<tr><td class="mono">'+r.bay+'</td><td>'+r.type+'</td><td class="mono">'+r.inT+'</td><td class="mono">'+r.outT+'</td><td class="n mono">'+r.kwh.toFixed(1)+'</td><td class="n mono">'+inr(r.cost)+'</td></tr>'}).join('')+'</tbody></table>':'<div class="empty">No exits yet. Charge an EV, pay, then press Exit to see a record here.</div>'}
+  if(S.dirtyChart||force){S.dirtyChart=false;renderChart()}
+}
+
+/* ---------- controls ---------- */
+function seg(id,key,conv){$(id).addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;S[key]=conv?conv(b.dataset.v):b.dataset.v;
+  $(id).querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+  if(key==='weather')note('Weather set to '+b.textContent.toLowerCase(),'')})}
+seg('#speed','mps',Number);seg('#weather','weather');
+$('#play').addEventListener('click',function(){S.playing=!S.playing;this.textContent=S.playing?'Pause':'Play'});
+$('#reset').addEventListener('click',function(){init(true);$('#play').textContent=S.playing?'Pause':'Play'});
+['#pConv','#pPs'].forEach(function(id){$(id).addEventListener('input',function(){render(false)})});
+
+buildBays();init(false);
+var last=performance.now(),acc=0;
+function loop(now){var dt=Math.max(0,Math.min(0.1,(now-last)/1000));last=now;
+  if(S.playing){step(dt);acc+=dt;if(acc>0.12){acc=0;render(false)}}
+  requestAnimationFrame(loop)}
+requestAnimationFrame(loop);
+})();
+</script>
+
+</body></html>
